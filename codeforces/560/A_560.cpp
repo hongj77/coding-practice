@@ -12,7 +12,8 @@ int main() {
 	int flag = 1;
 	for(int i = 0; i < n; ++i) {
 		int num;
-		if (cin>>num == 1) {
+		cin>>num;
+		if (num == 1) {
 			flag = -1;
 			break;
 		}
