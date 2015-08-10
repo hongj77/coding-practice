@@ -8,8 +8,8 @@ using namespace std;
 
 int n;
 int a[100050];
-map<int,int> f;
-map<int,int> l; 
+map<int,int> l;
+map<int,int> r; 
 map<int,int> cnt;
 
 int main() {
@@ -20,11 +20,11 @@ int main() {
       cin>>num;
       a[i] = num;
       if (cnt.find(num) == cnt.end()) {
-        f[num] = i;
         l[num] = i;
-        cnt[num] = 0;
+        r[num] = i;
+        cnt[num] = 1;
       } else {
-        l[num] = i;
+        r[num] = i;
         cnt[num]++;
       }
       mx = max(mx, cnt[num]);
@@ -34,16 +34,17 @@ int main() {
     int mini = 0;
     int minj = 0;
     for (int i = 0; i < n; i++) {
-      if (cnt[a[i]] == mx) {
-        if (l[i]-f[i]+1 <= mn) {
-          mn = l[i]-f[i]+1;
-          mini = f[i];
-          minj = l[i];
+      int num = a[i];
+      if (cnt[num] == mx) {
+        if (r[num]-l[num]+1 <= mn) {
+          mn = r[num]-l[num]+1;
+          mini = l[num];
+          minj = r[num];
         }
       }
     }
 
-    cout<<mini<<" "<<minj<<endl;
+    cout<<mini+1<<" "<<minj+1<<endl;
     
 
     return 0;
