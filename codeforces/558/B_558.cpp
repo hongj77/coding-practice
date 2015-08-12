@@ -45,7 +45,6 @@ int main() {
     }
 
     cout<<mini+1<<" "<<minj+1<<endl;
-    
 
     return 0;
 }
