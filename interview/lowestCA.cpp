@@ -5,10 +5,12 @@
 
 using namespace std;
 
+
 struct Node {
   int key;
   struct Node *left, *right;
 };
+
 
 Node* newNode(int k) {
   Node *temp = new Node;
@@ -18,7 +20,7 @@ Node* newNode(int k) {
   return temp;
 }
 
-// must assume that n1 and n2 are both in the tree
+
 int findLCA(Node* root, int n1, int n2) {
   if (root == NULL) {
     return -1;
@@ -28,18 +30,22 @@ int findLCA(Node* root, int n1, int n2) {
   }
   int left = findLCA(root->left, n1, n2);
   int right = findLCA(root->right, n1,n2); 
-
+  
+  // one value in left side, one value in right side
   if (left != -1 && right != -1) {
     return root->key;
   }
+  // both in left
   if (left != -1) {
     return left;
   }
+  // both in right
   if (right != -1) {
     return right;
   }
   return -1;
 }
+
 
 int main() {
   Node* root = newNode(1);
@@ -53,7 +59,6 @@ int main() {
   cout<<findLCA(root,4,5) << endl;
   cout<<findLCA(root,3,6) << endl;
   cout<<findLCA(root,7,5) << endl;
-
 
   return 0;
 }
