@@ -9,7 +9,7 @@ int n, m;
 int can[105];
 
 int main() {
-	cin>>n>>m;
+  cin>>n>>m;
   for (int i = 0; i < m; i++) {
     int maxn = -1;
     int maxi = -1;
@@ -33,6 +33,5 @@ int main() {
     } 
   }
   cout<<maxi<<endl;
-
-	return 0;
+  return 0;
 }
