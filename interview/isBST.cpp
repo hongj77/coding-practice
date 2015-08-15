@@ -29,6 +29,22 @@ bool isBST(Node* root, int maxn, int minn) {
 }
 
 
+bool isBST2(Node* root) {
+  static int prevn = -1;
+  if(root == NULL) {
+    return true;
+  }  
+  if(!isBST2(root->left)) {
+    return false;
+  }
+  if(root->key < prevn) {
+    return false;
+  }
+  prevn = root->key;
+  return isBST2(root->right);
+}
+
+
 int main() {
 
   Node* root = newNode(1);
@@ -43,12 +59,13 @@ int main() {
   root2->left = newNode(4);
   root2->left->left = newNode(3);
   root2->left->right = newNode(5);
-  
-  cout<<isBST(root, 1000, -1000)<<endl;
-  cout<<isBST(root2, 1000, -1000)<<endl;
 
-  cout<<isBST2(root,)<<endl;
-  cout<<isBST2(root2,-1)<<endl;
+  Node* root3 = newNode(6);
+  root3->left = newNode(7);
+  root3->left->left = newNode(3);
+  root3->left->right = newNode(10);
+
+  cout<<isBST2(root2)<<endl;
 
   return 0;
 }
