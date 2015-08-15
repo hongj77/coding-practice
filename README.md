@@ -1,2 +1,2 @@
 # coding-practice
-C++ is so ugly but so fast..
+C++ is so ugly but so fast...
