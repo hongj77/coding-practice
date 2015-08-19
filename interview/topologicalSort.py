@@ -29,10 +29,9 @@ class Graph:
   
   def topological_helper(self, v, visited, stack):
     visited[v] = True
-    if (v in self.adj):
+    if v in self.adj: # this is for end nodes that aren't in the adjacency list
       for w in self.adj[v]:
         if visited[w] == False:
-          visited[w] = True
           self.topological_helper(w, visited, stack)
     stack.append(v)
         
