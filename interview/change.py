@@ -1,4 +1,5 @@
-from pprint import PrettyPrinter
+''' Given a set of coins and amount of money, find the number of possible ways 
+    to make change using the coins given'''
 
 # recursive solution
 def total(s,m,n):
