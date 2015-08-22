@@ -39,7 +39,6 @@ def longestdp(a):
   return max(sol)
 
 
-
 if __name__=="__main__":
   a = [10,50,11,12,13]
   print longest(a)
