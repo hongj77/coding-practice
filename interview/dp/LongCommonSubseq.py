@@ -2,7 +2,12 @@
     in both of them.
 '''
 
-''' DP solution. Will write explanation of code soon.
+''' DP solution runs in O(|a|*|b|). Comparing each of the last characters
+    from string a and string b, we know that they can either match or not
+    match. If they do NOT match, then either the last char in string a 
+    matches some other char earlier in b or the last char in string b
+    matches some other char earlier in a. We ensure longest matching
+    subsequence by starting comparison from the back of the string. 
 '''
 def lcs(a,b):  
   # a x b matrix, but with extra row and column for empty chracters
