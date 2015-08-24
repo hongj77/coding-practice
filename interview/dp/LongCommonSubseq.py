@@ -20,6 +20,24 @@ def lcs(a,b):
         sol[i+1][j+1] = max(sol[i][j+1], sol[i+1][j])
   return sol[len(a)][len(b)] 
 
+''' No wifi today, so will solve a problen by editing this file from
+    phone connection. Shortest distance matrix problem you start at 
+    0,0 and traverse down right or downright diagnol.
+'''
+
+def shortest(cost):
+  m = len(cost)
+  n = len(cost[0])
+  sol[0][0] = cost[0][0]
+  for i in range(1,m):
+    sol[i][0] = sol[i-1][0] + cost[i][0]
+  for i in range(1,n):
+    sol[0][i] = sol[0][i-1] + cost[0][i-1]
+  for i in range(1,m):
+    for j in range(1,n):
+      sol[i][j] = min(sol[i-1][j], sol[i][j-1], sol[i-1],[j-1])
+  return sol[m][n]
+
 if __name__=="__main__":
   a = "ABCDGH"
   b = "AEDFHR"
