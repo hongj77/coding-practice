@@ -38,6 +38,19 @@ def shortest(cost):
       sol[i][j] = min(sol[i-1][j], sol[i][j-1], sol[i-1],[j-1])
   return sol[m][n]
 
+''' No wifi again. Just going to do the knapsack problem. Runs
+    in O(nW)
+'''
+def knapsack(W,n,value,weight):
+  sol = [0 for _ in range(len(n)+1)] for _ in range(len(W)+1)]
+  for i in range(1,W):
+    for j in range(1,n):
+      if weight[j-1] > i:
+        sol[i][j] = sol[i][j-1]
+      else:
+        sol[i][j] = max(sol[i][j-1],sol[i-weight[j-1]][j-1]+value[j])
+  return sol[W][n]
+
 if __name__=="__main__":
   a = "ABCDGH"
   b = "AEDFHR"
