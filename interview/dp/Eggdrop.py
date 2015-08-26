@@ -1,4 +1,5 @@
 import sys
+import pprint
 
 ''' The Egg drop question is as follows: Suppose there is a building with
     k floors. The goal is to find the "critical floor" which will break
@@ -26,6 +27,8 @@ def eggDrop(n,k):
   # don't need any drops for no floors
   if k == 0:
     return 0
+  if k == 1:
+    return 1
   # To minimize the number of MAX number of drops, we need to find out 
   # what the worst case is for every possibility: egg breaks or it doesn't
   # for every single floor i in 1 ... k
@@ -36,7 +39,34 @@ def eggDrop(n,k):
     worstCase = max(eggDrop(n-1,i-1), eggDrop(n,k-i))
     minTrials = min(minTrials,worstCase)
   return minTrials + 1
+
+
+''' DP solution of the same problem using bottom up construction of 2D Array
+    O(nk^2) time
+'''
+
+def eggDropDP(n,k):
+  pp = pprint.PrettyPrinter()
+  # constructing k rows and n columns
+  sol = [[0 for _ in range(k+1)] for _ in range(n+1)]
   
+  for i in range(1,n+1):
+    sol[i][1] = 1
+  for i in range(1,k+1):
+    sol[1][i] = i
+
+  for i in range(2,n+1):
+    for j in range(2,k+1):
+      minTrials = sys.maxint
+      for x in range(1,j+1):
+        res = 1 + max(sol[i-1][x-1], sol[i][j-x])
+        minTrials = min(minTrials,res)
+      sol[i][j] = minTrials
+
+  pp.pprint(sol) 
+
+  return sol[n][k]
 
 if __name__=="__main__":
   print eggDrop(2,10)
+  print eggDropDP(2,10)
