@@ -42,7 +42,7 @@ def shortest(cost):
     in O(nW)
 '''
 def knapsack(W,n,value,weight):
-  sol = [0 for _ in range(len(n)+1)] for _ in range(len(W)+1)]
+  sol = [[0 for _ in range(len(n)+1)] for _ in range(len(W)+1)]
   for i in range(1,W):
     for j in range(1,n):
       if weight[j-1] > i:
