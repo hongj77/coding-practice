@@ -7,7 +7,7 @@ if __name__=="__main__":
   B = list(map(int, raw_input().split()))
 
   if A[k-1] < B[size_b-m]:
-   print "YES"
+    print "YES"
   else:
     print "NO"
 
