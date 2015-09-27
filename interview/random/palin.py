@@ -10,7 +10,7 @@ def isPalin(word):
 
 
 ''' how many letters do you have to add to the RIGHT side of the word
-    to make it a palindrome. Find the minimum count. '''
+    to make it a palindrome. Find the minimum count. O(N^2). not the best'''
 def palinAddition(word):
   letters = 0
   begin = 0

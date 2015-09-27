@@ -1,8 +1,6 @@
-
 ''' Find the total number of continuous subsequences of an array that is
     an arithmetic sequence
 '''
-
 
 def Sequence(A):
 
@@ -29,6 +27,7 @@ def Sequence(A):
         total_combos = ((index-2) * (1 + index-2)) / 2
         total += total_combos
         combo = 1
+      diff = a[i+1] = a[i]
   return total
 
 if __name__=="__main__":

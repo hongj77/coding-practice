@@ -28,6 +28,7 @@ def sqrt_fast(num):
     else:
       end = mid
   return mid
+  
 
 #the formula for newton raphson method is x1 = x0 - (f(x)/f'(X))
 def sqrt_newtonraphson(n):

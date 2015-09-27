@@ -21,20 +21,22 @@ class Graph:
   def topologicalSort(self):
     stack = []
     visited = [False for _ in range(self.v)]
-    for k,v in self.adj.iteritems():
+    for k,v in self.adj.iteritems(): # must start DFS from each of the nodes
       if visited[k] == False:
         self.topological_helper(k, visited, stack)
     while stack:
       print stack.pop()
   
   def topological_helper(self, v, visited, stack):
+    ''' Simple DFS but also put self on stack after visiting all its neighbors'''
     visited[v] = True
-    if v in self.adj: # this is for end nodes that aren't in the adjacency list
+    if v in self.adj: # only continue if v is not an end node.
       for w in self.adj[v]:
         if visited[w] == False:
           self.topological_helper(w, visited, stack)
     stack.append(v)
         
+  # dfs practice
   def DFS(self, v):
     visited = [False for _ in range(self.v)] #node indexed bool array
     visited[v] = True 
