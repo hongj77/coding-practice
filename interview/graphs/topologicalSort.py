@@ -51,6 +51,22 @@ class Graph:
         self.DFS_helper(w, visited)
 
 
+  def BFS(self,v):
+    visited = [False for _ in range(self.v)]
+    q = []
+    visited[v] = True
+    q.append(v)
+
+    while len(q) != 0:
+      cur = q.popleft()
+      print cur
+      for neighbor in self.adj[v]:
+        if visited[neighbor] == False:
+          visited[neighbor] = True
+          q.append(neighbor)
+
+
+
 if __name__ == "__main__":
   g = Graph(6)
   g.addEdge(5,2)
