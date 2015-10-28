@@ -43,7 +43,7 @@ def search_suffix(suffix_array, word, pattern):
 
 
 if __name__=="__main__":
-	word = "hong"
+	word = "banana$"
 	suffix_array = build_suffix_array(word)
 	print "Suffix array is:", suffix_array
 
