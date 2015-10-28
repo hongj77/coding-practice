@@ -3,7 +3,7 @@ def subsetSum(nums,i,k):
 	''' Runs in O(2^n) '''
 	if k == 0:
 		return True
-	if i == 0 and k != 0:
+	if i == 0:
 		return False
 	# include ith element and not include ith element
 	return subsetSum(nums,i-1,k-nums[i]) or subsetSum(nums,i-1,k) 
