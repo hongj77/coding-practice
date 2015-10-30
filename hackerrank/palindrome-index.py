@@ -8,15 +8,14 @@ def isPalin(word):
 def findIndex(word):
 	for i in range(len(word)/2):
 		if word[i] != word[-1-i]:
-			if i == 0:
-				removed = word[i+1:]
-			else:
-				removed = word[:i-1] + word[i+1:]
+			
+			removed = word[:i] + word[i+1:]
 
 			if isPalin(removed):
 				return i
 			else:
 				return len(word)-1-i
+
 	return -1
 
 
