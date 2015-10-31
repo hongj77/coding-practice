@@ -97,3 +97,6 @@ if __name__=="__main__":
 	suffix_array = build_suffix_array(word)
 	print "Suffix array is:", suffix_array
 
+	for i in range(int(math.ceil(math.log(len(word),2))),-1,-1):
+		print i
+
