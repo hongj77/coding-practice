@@ -32,7 +32,7 @@ def total2(n,coins):
   return sol[m][n]
 
 if __name__ == "__main__":
-  s = [1,2,3]
+  s = [1,2,3,4,5,6,7,8]
 
-  print total(s,len(s)-1, 5) #recursive test
-  print total2(5,s) #dp test
+  print total(s,len(s)-1, 25) #recursive test
+  print total2(25,s) #dp test

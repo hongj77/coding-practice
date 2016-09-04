@@ -1,5 +1,6 @@
 import math
 
+
 def same(tup1, tup2):
     sortIndex1, sortIndex2, suffix = tup1
     sortIndex1_prev, sortIndex2_prev, suffix_prev = tup2
@@ -42,10 +43,33 @@ def build(word):
                 element = (SIndex[steps][i], -1, i)
                 L.append(element)
         
-        L.sort()
+        # L.sort()
+        maxlen = N*10000+3*N
+        Radix = [[] for i in range(maxlen)]
+
+        print L
+
+        for tup in L:
+            val = 0
+            first, second, i = tup
+            val += first*100
+
+            if second > -1:
+                if second == 0:
+
+                else:
+                    val += second
+
+            Radix[val].append(tup)
+
+        L = []
+        for i in range(maxlen):
+            for tup in Radix[i]:
+                if tup != -1:
+                    L.append(tup)
+        print L
         
         for i in range(N):
-            
             if i == 0:
                 SIndex[steps+1][L[i][2]] = 0
             else:
@@ -65,7 +89,6 @@ def build(word):
     return totalLCP
                 
   
-    
 if __name__=="__main__":
     T = int(raw_input())
     for _ in range(T):

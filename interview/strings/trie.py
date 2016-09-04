@@ -25,6 +25,8 @@ class SuffixTree:
 			if i == last_index:			
 				if char not in current_node.children:
 					current_node.children[char] = Node(char, True)
+				else:
+					current_node.children[char].isLeaf = True
 			else:
 				if char not in current_node.children:
 					current_node.children[char] = Node(char, False)
@@ -74,10 +76,12 @@ if __name__=="__main__":
 		word = raw_input()
 		suffix_tree.insert(word)
 
-	print suffix_tree.possibleWords("")
-	print suffix_tree.possibleWords("br")
-	print suffix_tree.possibleWords("bra")
-	print suffix_tree.possibleWords("brah")
-	print suffix_tree.possibleWords("brady")
+	print suffix_tree.possibleWords(raw_input())
+
+	# print suffix_tree.possibleWords("")
+	# print suffix_tree.possibleWords("br")
+	# print suffix_tree.possibleWords("bra")
+	# print suffix_tree.possibleWords("brah")
+	# print suffix_tree.possibleWords("brady")
 
 
