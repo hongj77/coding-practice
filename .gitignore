@@ -1,4 +1,5 @@
 *.swp
 *.o
 *.out
-codingchallenges/codingchallenge*.py
+codingchallenges/companies/
+.DS_Store
