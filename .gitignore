@@ -2,4 +2,4 @@
 *.o
 *.out
 codingchallenges/companies/
-.DS_Store
+*.DS_Store
