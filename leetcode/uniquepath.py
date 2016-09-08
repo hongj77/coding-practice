@@ -15,4 +15,4 @@ def uniquePaths(m,n):
 
 if __name__=="__main__":
 	print uniquePaths(1,2) # 1
-	print uniquePaths(3,3) # 6
+	print uniquePaths(4,5) # 6
